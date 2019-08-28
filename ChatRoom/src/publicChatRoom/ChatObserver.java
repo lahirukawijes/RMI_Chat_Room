@@ -10,5 +10,5 @@ package publicChatRoom;
  * @author Lahiruka
  */
 public interface ChatObserver {
-    
+    public void update(String message);
 }
