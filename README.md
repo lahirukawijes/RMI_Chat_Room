@@ -18,3 +18,10 @@ The stub is an object, acts as a gateway for the client side. All the outgoing r
 4. It reads (unmarshals) the return value or exception, and
 5. It finally, returns the value to the caller.
 
+### Skeleton
+The skeleton is an object, acts as a gateway for the server side object. All the incoming requests are routed through it. When the skeleton receives the incoming request, it does the following tasks:
+
+1. It reads the parameter for the remote method
+2. It invokes the method on the actual remote object, and
+3. It writes and transmits (marshals) the result to the caller.
+4. In the Java 2 SDK, an stub protocol was introduced that eliminates the need for skeletons.
