@@ -11,7 +11,7 @@ import java.awt.event.WindowEvent;
  *
  * @author Lahiruka
  */
-public class ChatRoom extends javax.swing.JFrame {
+public class ChatRoom extends javax.swing.JFrame implements ChatObserver{
     private ChatObservable chatObservable;
     /**
      * Creates new form ChatRoom
@@ -91,6 +91,11 @@ public class ChatRoom extends javax.swing.JFrame {
     private javax.swing.JTextField TxtsendMessage;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void update(String message) {
+        TxtMessageHistory.append(message+"\n");
+    }
 
     
 
