@@ -1,6 +1,6 @@
 # RMI_Chat_Room 
 ```diff
-java RMI
++java RMI
 ```
 
 Chat Room using Remote Method Invocation
