@@ -24,4 +24,5 @@ The skeleton is an object, acts as a gateway for the server side object. All the
 1. It reads the parameter for the remote method
 2. It invokes the method on the actual remote object, and
 3. It writes and transmits (marshals) the result to the caller.
-4. In the Java 2 SDK, an stub protocol was introduced that eliminates the need for skeletons.
+
+In the Java 2 SDK, an stub protocol was introduced that eliminates the need for skeletons.
