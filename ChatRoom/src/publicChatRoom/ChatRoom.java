@@ -10,12 +10,15 @@ package publicChatRoom;
  * @author Lahiruka
  */
 public class ChatRoom extends javax.swing.JFrame {
-
+    private ChatObservable chatObservable;
     /**
      * Creates new form ChatRoom
      */
     public ChatRoom() {
         initComponents();
+        this.chatObservable=chatObservable;
+        setTitle(name);
+        setVisible(true);
     }
 
     /**
@@ -32,10 +35,24 @@ public class ChatRoom extends javax.swing.JFrame {
         TxtsendMessage = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         TxtMessageHistory.setColumns(20);
         TxtMessageHistory.setRows(5);
         jScrollPane1.setViewportView(TxtMessageHistory);
+
+        TxtsendMessage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtsendMessageActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -55,6 +72,20 @@ public class ChatRoom extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void TxtsendMessageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtsendMessageActionPerformed
+        String message=getTitle()+" : "+TxtsendMessage.getText();
+        chatObservable.setMessage(message);
+    }//GEN-LAST:event_TxtsendMessageActionPerformed
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formWindowActivated
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        chatObservable.removeChatObserver(this);
+    }//GEN-LAST:event_formWindowClosing
+
+     
     /**
      * @param args the command line arguments
      */
@@ -65,4 +96,10 @@ public class ChatRoom extends javax.swing.JFrame {
     private javax.swing.JTextField TxtsendMessage;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void update(String message) {
+        TxtsendMessage.append(message+"\n");
+    }
+
 }
