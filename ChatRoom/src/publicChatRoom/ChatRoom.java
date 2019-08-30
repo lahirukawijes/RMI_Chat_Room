@@ -5,6 +5,8 @@
  */
 package publicChatRoom;
 
+import java.awt.event.WindowEvent;
+
 /**
  *
  * @author Lahiruka
@@ -14,11 +16,11 @@ public class ChatRoom extends javax.swing.JFrame {
     /**
      * Creates new form ChatRoom
      */
-    public ChatRoom() {
+    public ChatRoom(ChatObservable chatObservable, String name) {
         initComponents();
-        this.chatObservable=chatObservable;
-        setTitle(name);
-        setVisible(true);
+        this.chatObservable = chatObservable;
+        
+        
     }
 
     /**
@@ -82,7 +84,7 @@ public class ChatRoom extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowActivated
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        chatObservable.removeChatObserver(this);
+        chatObservable.removeChatObserver(chatObserver);
     }//GEN-LAST:event_formWindowClosing
 
      
@@ -97,9 +99,6 @@ public class ChatRoom extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 
-    @Override
-    public void update(String message) {
-        TxtsendMessage.append(message+"\n");
-    }
+    
 
 }
