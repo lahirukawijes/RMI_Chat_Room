@@ -30,3 +30,12 @@ The skeleton is an object, acts as a gateway for the server side object. All the
 3. It writes and transmits (marshals) the result to the caller.
 
 In the Java 2 SDK, an stub protocol was introduced that eliminates the need for skeletons.
+
+Understanding requirements for the distributed applications
+
+If any application performs these tasks, it can be distributed application.
+
+The application need to locate the remote method
+It need to provide the communication with the remote objects, and
+The application need to load the class definitions for the objects.
+The RMI application have all these features, so it is called the distributed application.
