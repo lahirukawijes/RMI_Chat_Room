@@ -1,4 +1,4 @@
-# RMI_Chat_Room 
+# RMI Chat Room 
 ```diff
 +java RMI
 ```
@@ -31,11 +31,11 @@ The skeleton is an object, acts as a gateway for the server side object. All the
 
 In the Java 2 SDK, an stub protocol was introduced that eliminates the need for skeletons.
 
-Understanding requirements for the distributed applications
-
+### Understanding requirements for the distributed applications
 If any application performs these tasks, it can be distributed application.
 
-The application need to locate the remote method
-It need to provide the communication with the remote objects, and
-The application need to load the class definitions for the objects.
+1. The application need to locate the remote method
+2. It need to provide the communication with the remote objects, and
+3. The application need to load the class definitions for the objects.
+
 The RMI application have all these features, so it is called the distributed application.
